@@ -9,7 +9,8 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.euxm4cs.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ojqxfjk.mongodb.net/?retryWrites=true&w=majority`;
+
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -18,7 +19,7 @@ const client = new MongoClient(uri, {
 
 const run = async () => {
   try {
-    const db = client.db('tech-net');
+    const db = client.db('cart-data');
     const productCollection = db.collection('product');
 
     app.get('/products', async (req, res) => {
